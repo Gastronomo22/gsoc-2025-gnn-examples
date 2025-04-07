@@ -3,34 +3,41 @@ using Flux
 using Statistics
 using Random
 
-Random.seed!(42)  # For reproducibility
+Random.seed!(42)  # Ensure reproducibility of shuffling
 
-# Load dataset (MUTAG)
+# Load MUTAG dataset.
+# Each example is a separate molecular graph labeled by mutagenic effect.
+# Task: graph-level classification (binary).
 dataset = load_mutag()
-graphs = dataset.graphs
-labels = dataset.targets
+graphs = dataset.graphs         # List of individual graphs
+labels = dataset.targets        # One label per graph
 
-# Shuffle & split
+# Shuffle and split indices into 80% training, 20% test
 n = length(graphs)
 perm = randperm(n)
 train_idx = perm[1:floor(Int, 0.8n)]
 test_idx  = perm[floor(Int, 0.8n)+1:end]
 
-# Define GIN model
+# Define a GIN (Graph Isomorphism Network) model with sum pooling.
+# This model applies multiple MLP layers (Dense) to node features,
+# then pools node embeddings to produce a graph-level embedding.
 function make_model(in_dim, out_dim)
     GIN(
-        [Dense(in_dim, 32, relu),
-         Dense(32, 32),
-         Dense(32, out_dim)],
-        sum_pool
+        [ Dense(in_dim, 32, relu),
+          Dense(32, 32),
+          Dense(32, out_dim) ],
+        sum_pool    # Aggregate all node embeddings into a single graph embedding
     )
 end
 
+# Build model: input dimension from node features, output = num classes
 model = make_model(size(graphs[1].x, 1), length(unique(labels)))
+
+# Loss: multi-class cross entropy on one graph
 loss_fn(g, y) = Flux.logitcrossentropy(model(g), y)
 opt = ADAM(0.01)
 
-# Training loop
+# Training loop: full batch (graph-by-graph)
 for epoch in 1:100
     total_loss = 0.0
     for i in train_idx
@@ -44,7 +51,7 @@ for epoch in 1:100
     end
 end
 
-# Evaluation
+# Evaluation on test set: count correct predictions
 correct = 0
 for i in test_idx
     g, y_true = graphs[i], labels[i]
