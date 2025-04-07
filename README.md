@@ -1,5 +1,5 @@
 # gsoc-2025-gnn-examples
-A collection of minimal and educational Julia examples using GraphNeuralNetworks.jl for my GSoC 2025 proposal, drawing inspiration from PyTorch Geometric (PyG) (https://pytorch-geometric.readthedocs.io)
+A collection of minimal and educational Julia examples using GraphNeuralNetworks.jl for my GSoC 2025 proposal, drawing inspiration from [PyTorch Geometric (PyG)](https://pytorch-geometric.readthedocs.io).
 
 The goal is to help new users understand how to apply GNN layers in Julia, by starting from simple examples and gradually reimplementing canonical PyG models and tasks.
 
@@ -18,6 +18,10 @@ A simple GCN with two layers, trained on the Cora dataset for node classificatio
 Includes training loop and test accuracy evaluation.
 
 ## PyG_inspired_examples
+
+### `gat_cora.jl`
+Reimplementation of the classic Graph Attention Network (GAT) model on the Cora dataset.  
+This example uses two GATConv layers with 8 attention heads and a simple Flux training loop.  
 
 
 
