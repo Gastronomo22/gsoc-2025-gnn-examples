@@ -41,10 +41,11 @@ A graph classification example using the Graph Isomorphism Network (GIN) on the 
 This script demonstrates how to classify entire graphs using sum pooling and a simple training loop.  
 Inspired by PyG's `gin.py` example, adapted for GraphNeuralNetworks.jl.
 
-### `gat_arxiv.jl`
-Node classification on the Cora dataset using Graph Attention Networks (GAT).  
-This model uses multi-head attention and follows the structure of PyG’s canonical GAT example.  
-A clean and interpretable baseline for attention-based message passing in GNNs.
+### `appnp_cora.jl`
+A node classification example using APPNP, a GNN model that propagates class scores through the graph using personalized PageRank.  
+This approach separates feature transformation from neighborhood aggregation, making it more flexible and expressive than basic GCNs.  
+This example adapts the APPNP approach from PyTorch Geometric for the Cora dataset.
+
 
 
 
