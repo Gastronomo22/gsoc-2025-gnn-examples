@@ -21,7 +21,12 @@ Includes training loop and test accuracy evaluation.
 
 ### `gat_cora.jl`
 Reimplementation of the classic Graph Attention Network (GAT) model on the Cora dataset.  
-This example uses two GATConv layers with 8 attention heads and a simple Flux training loop.  
+This example uses two GATConv layers with 8 attention heads and a simple Flux training loop.
+
+### `gin_mutag.jl`
+GIN model for graph classification on the MUTAG dataset, adapted from PyTorch Geometric’s `gin.py`.  
+Uses sum pooling and a simple training loop to classify whole graphs.
+
 
 
 
