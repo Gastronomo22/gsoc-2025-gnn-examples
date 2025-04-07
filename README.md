@@ -17,6 +17,10 @@ Useful for understanding how to apply a GCN layer without setup.
 A simple GCN with two layers, trained on the Cora dataset for node classification.  
 Includes training loop and test accuracy evaluation.
 
+### `karate_gcn_minimal.jl`
+This example demonstrates a basic two-layer Graph Convolutional Network (GCN) applied to the well-known Karate Club dataset.  
+Due to its simplicity, the dataset allows for fast training and easy visualization, making it a great starting point for understanding node classification with GNNs.
+
 ## PyG_inspired_examples
 
 ### `gat_cora.jl`
