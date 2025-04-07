@@ -6,6 +6,7 @@ The goal is to help new users understand how to apply GNN layers in Julia, by st
 Contributions, suggestions, and feedback are welcome!
 
 # Examples
+I worked on two folders of examples: the first contains some introductory examples, the second one contains more complex examples inspired by the documentation of PyG.
 
 ## introductory_examples
 
