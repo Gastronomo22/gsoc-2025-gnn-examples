@@ -27,24 +27,26 @@ Due to its simplicity, the dataset allows for fast training and easy visualizati
 Reimplementation of the classic Graph Attention Network (GAT) model on the Cora dataset.  
 This example uses two GATConv layers with 8 attention heads and a simple Flux training loop.
 
-### `gin_mutag.jl`
-GIN model for graph classification on the MUTAG dataset, adapted from PyTorch Geometric’s `gin.py`.  
-Uses sum pooling and a simple training loop to classify whole graphs.
+### `appnp_cora.jl`
+A node classification example using APPNP, a GNN model that propagates class scores through the graph using personalized PageRank.  
+This approach separates feature transformation from neighborhood aggregation, making it more flexible and expressive than basic GCNs.  
+This example adapts the APPNP approach from PyTorch Geometric for the Cora dataset.
 
 ### `sage_link_prediction.jl`
 A PyG-inspired example that uses GraphSAGE to perform link prediction on the Cora dataset.  
 The model learns to predict whether an edge exists between two nodes, using dot-product scoring on learned embeddings.  
 Positive and negative samples are generated from the graph structure, and training is done with binary cross-entropy loss.
 
+### `gin_mutag.jl`
+GIN model for graph classification on the MUTAG dataset, adapted from PyTorch Geometric’s `gin.py`.  
+Uses sum pooling and a simple training loop to classify whole graphs.
+
 ### `gin_proteins_classification.jl`
 A graph classification example using the Graph Isomorphism Network (GIN) on the PROTEINS dataset.  
 This script demonstrates how to classify entire graphs using sum pooling and a simple training loop.  
 Inspired by PyG's `gin.py` example, adapted for GraphNeuralNetworks.jl.
 
-### `appnp_cora.jl`
-A node classification example using APPNP, a GNN model that propagates class scores through the graph using personalized PageRank.  
-This approach separates feature transformation from neighborhood aggregation, making it more flexible and expressive than basic GCNs.  
-This example adapts the APPNP approach from PyTorch Geometric for the Cora dataset.
+
 
 
 
