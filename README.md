@@ -31,6 +31,12 @@ This example uses two GATConv layers with 8 attention heads and a simple Flux tr
 GIN model for graph classification on the MUTAG dataset, adapted from PyTorch Geometric’s `gin.py`.  
 Uses sum pooling and a simple training loop to classify whole graphs.
 
+### `sage_link_prediction.jl`
+A PyG-inspired example that uses GraphSAGE to perform link prediction on the Cora dataset.  
+The model learns to predict whether an edge exists between two nodes, using dot-product scoring on learned embeddings.  
+Positive and negative samples are generated from the graph structure, and training is done with binary cross-entropy loss.
+
+
 
 
 
