@@ -36,6 +36,11 @@ A PyG-inspired example that uses GraphSAGE to perform link prediction on the Cor
 The model learns to predict whether an edge exists between two nodes, using dot-product scoring on learned embeddings.  
 Positive and negative samples are generated from the graph structure, and training is done with binary cross-entropy loss.
 
+### `gin_proteins_classification.jl`
+A graph classification example using the Graph Isomorphism Network (GIN) on the PROTEINS dataset.  
+This script demonstrates how to classify entire graphs using sum pooling and a simple training loop.  
+Inspired by PyG's `gin.py` example, adapted for GraphNeuralNetworks.jl.
+
 
 
 
