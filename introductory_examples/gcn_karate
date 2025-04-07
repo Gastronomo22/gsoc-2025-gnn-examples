@@ -1,1 +1,31 @@
+using GraphNeuralNetworks, GraphSignals
+using Flux
+
+# Load the Karate Club dataset
+dataset = load_karateclub()
+g = dataset.graph
+x = dataset.features
+y = dataset.targets
+adj = g.adjacency
+
+# Define 2-layer GCN
+model = Chain(
+    GCNConv(size(x, 1) => 16, relu),
+    GCNConv(16 => length(unique(y)))
+)
+
+loss_fn() = Flux.logitcrossentropy(model(x, adj), y)
+opt = Descent(0.01)
+
+# Train loop
+for epoch in 1:100
+    grads = Flux.gradient(() -> loss_fn(), Flux.params(model))
+    Flux.Optimise.update!(opt, Flux.params(model), grads)
+end
+
+# Predict & report
+ŷ = model(x, adj)
+preds = Flux.onecold(ŷ)
+accuracy = sum(preds .== y) / length(y)
+@info "Test accuracy on Karate Club: $accuracy"
 
