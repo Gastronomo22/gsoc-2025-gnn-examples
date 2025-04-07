@@ -1,8 +1,9 @@
 # gsoc-2025-gnn-examples
 A collection of minimal and educational Julia examples using GraphNeuralNetworks.jl for my GSoC 2025 proposal, drawing inspiration from PyTorch Geometric (PyG) (https://pytorch-geometric.readthedocs.io)
-Contributions, suggestions, and feedback are welcome!
 
 The goal is to help new users understand how to apply GNN layers in Julia, by starting from simple examples and gradually reimplementing canonical PyG models and tasks.
+
+Contributions, suggestions, and feedback are welcome!
 
 # Examples
 
